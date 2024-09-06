@@ -11,6 +11,7 @@
         app:layout_constraintWidth_percent="0.2"
         tools:ignore="MissingConstraints" />
     <FrameLayout
+        android:id="@+id/primary_container"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toRightOf="@id/primary_menu"

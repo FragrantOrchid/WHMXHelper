@@ -1,16 +1,23 @@
-package cn.org.orchid.whmx;
+package cn.org.orchid.whmx.Activity;
 
+import androidx.fragment.app.Fragment;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.app.Activity;
-import android.os.Bundle;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import cn.org.orchid.whmx.Adapter.PrimaryMenuAdapter;
+import cn.org.orchid.whmx.Fragment.TeaBreakFragment;
+import cn.org.orchid.whmx.R;
 
 public class PrimaryActivity extends AppCompatActivity {
     @Override
@@ -28,6 +35,7 @@ public class PrimaryActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 handleItemClick(selectedItem);
+
             }
         });
     }
@@ -36,7 +44,10 @@ public class PrimaryActivity extends AppCompatActivity {
         switch (selectedItem) {
             case "茶歇":
                 //TODO
-
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                TeaBreakFragment fragment = new TeaBreakFragment();
+                fragmentTransaction.replace(R.id.primary_container,fragment).commit();
                 break;
             case "信息来源":
                 //TODO
@@ -47,8 +58,12 @@ public class PrimaryActivity extends AppCompatActivity {
 
                 break;
             default:
+                //TODO
                 break;
         }
     }
+
+
+
 
 }

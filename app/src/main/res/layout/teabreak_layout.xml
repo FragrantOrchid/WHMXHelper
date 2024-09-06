@@ -4,16 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <FrameLayout
-        android:id="@+id/secondary_menu"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/teabreak_list"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        app:layout_constraintWidth_percent="0.4"
+        android:layout_margin="8dp"
+        app:layout_constraintWidth_percent="0.5"
         tools:ignore="MissingConstraints" />
     <FrameLayout
         android:id="@+id/secondsry_content"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        app:layout_constraintLeft_toRightOf="@id/secondary_menu"
-        app:layout_constrainedWidth_percent="0.6"/>
+        android:background="@color/white"
+        app:layout_constraintLeft_toRightOf="@id/teabreak_list"
+        app:layout_constraintWidth_percent="0.5"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
