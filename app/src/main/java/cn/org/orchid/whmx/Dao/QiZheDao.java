@@ -1,5 +1,6 @@
 package cn.org.orchid.whmx.Dao;
 
+import android.os.Looper;
 import android.os.Message;
 
 import org.json.JSONArray;
@@ -10,6 +11,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import android.os.Handler;
+import android.util.Log;
 
 import cn.org.orchid.whmx.Fragment.TeaBreakFragment;
 
@@ -22,6 +24,7 @@ public class QiZheDao {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                Log.v("test_skip","run dao");
                 String API_URL = "http://whmx.orchid.org.cn/?s=App.Qizhe.Getall";
                 JSONArray jsonArray = null;
                 Message message = Message.obtain();
@@ -46,12 +49,23 @@ public class QiZheDao {
                     jsonArray = jsonResponse.getJSONArray("data");
                     //得到信息，what=1
                     message.what = 1;
+                    Log.v("test_skip","try to send" + jsonArray);
+                    System.out.println("test");
+                    System.out.println(jsonArray);
                     message.obj = jsonArray.toString();
                 } catch (Exception e) {
                     message.what = 2;
                     e.printStackTrace();
                 }
-
+                //准备Looper
+                Looper.prepare();
+                //传入消息
+                new Handler().post(() -> {
+                    handler.sendMessage(message);
+                });
+                //进入消息循环
+                Looper.loop();
+                Log.v("test_skip","finish dao");
 
             }
         }).start();

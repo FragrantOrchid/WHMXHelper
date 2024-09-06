@@ -1,4 +1,5 @@
 package cn.org.orchid.whmx.Adapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ public class TeabreakAdapter extends RecyclerView.Adapter<TeabreakAdapter.ImageV
     public TeabreakAdapter(List<String> imageNames, OnImageClickListener listener) {
         this.imageNames = imageNames;
         this.listener = listener;
+        Log.v("test_skip", "adapter get");
     }
 
     @NonNull
