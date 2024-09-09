@@ -11,11 +11,193 @@
         android:layout_margin="8dp"
         app:layout_constraintWidth_percent="0.5"
         tools:ignore="MissingConstraints" />
-    <FrameLayout
-        android:id="@+id/secondsry_content"
+    <GridLayout
+        android:id="@+id/teabreak_content"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:layout_margin="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="16dp"
         app:layout_constraintLeft_toRightOf="@id/teabreak_list"
-        app:layout_constraintWidth_percent="0.5"/>
+        app:layout_constraintWidth_percent="0.5"
+        android:columnCount="2"
+        android:rowCount="8">
+        <TextView
+            android:id="@+id/tea1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/yellow" />
+        <TextView
+            android:id="@+id/tea2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/yellow" />
+        <TextView
+            android:id="@+id/pos1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/green" />
+        <TextView
+            android:id="@+id/neg1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/red" />
+        <TextView
+            android:id="@+id/pos2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/green" />
+        <TextView
+            android:id="@+id/neg2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/red" />
+        <TextView
+            android:id="@+id/pos3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/green" />
+        <TextView
+            android:id="@+id/neg3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/red" />
+        <TextView
+            android:id="@+id/pos4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/green" />
+        <TextView
+            android:id="@+id/neg4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/red" />
+        <TextView
+            android:id="@+id/topic1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/yellow" />
+        <TextView
+            android:id="@+id/topic2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/yellow" />
+        <TextView
+            android:id="@+id/pos5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/green" />
+        <TextView
+            android:id="@+id/pos6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/green" />
+        <TextView
+            android:id="@+id/neg5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/red" />
+        <TextView
+            android:id="@+id/neg6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnSpan="1"
+            android:layout_rowSpan="1"
+            android:layout_margin="4dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:background="@color/red" />
+    </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

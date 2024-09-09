@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,7 @@ public class PrimaryActivity extends AppCompatActivity {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 TeaBreakFragment fragment = new TeaBreakFragment();
                 fragmentTransaction.replace(R.id.primary_container,fragment).commit();
+                Log.v("test_skip","activity end");
                 break;
             case "信息来源":
                 //TODO

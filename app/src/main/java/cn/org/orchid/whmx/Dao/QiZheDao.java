@@ -16,7 +16,7 @@ import android.util.Log;
 import cn.org.orchid.whmx.Fragment.TeaBreakFragment;
 
 public class QiZheDao {
-    private Handler handler;
+    private final Handler handler;
     public QiZheDao(Handler handler) {
         this.handler = handler;
     }
@@ -65,38 +65,51 @@ public class QiZheDao {
                 });
                 //进入消息循环
                 Looper.loop();
-                Log.v("test_skip","finish dao");
 
             }
         }).start();
     }
-    public JSONObject getTeaBreak(int id) {
-        String API_URL = "http://whmx.orchid.org.cn/?s=App.Qizhe.GetTeaBreak&id="+id;
-        try {
-            // 创建 URL 对象
-            URL url = new URL(API_URL);
-            // 打开连接
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            // 读取响应
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            StringBuilder response = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                response.append(line);
+    public void getTeaBreak(String code) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String API_URL = "http://whmx.orchid.org.cn/?s=App.Qizhe.GetTeaBreak&code="+code;
+                Message message = Message.obtain();
+                try {
+                    // 创建 URL 对象
+                    URL url = new URL(API_URL);
+                    // 打开连接
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    connection.setRequestMethod("GET");
+                    // 读取响应
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    StringBuilder response = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+                    reader.close();
+                    // 关闭连接
+                    connection.disconnect();
+                    // 解析 JSON 数据
+                    JSONObject jsonResponse = new JSONObject(response.toString());
+                    JSONObject jsonData = jsonResponse.getJSONObject("data");
+                    String teaBreak = jsonData.getString("tea_break");
+                    message.what = 3;
+                    message.obj = teaBreak;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    message.what = 4;
+                }
+                //准备Looper
+                Looper.prepare();
+                //传入消息
+                new Handler().post(() -> {
+                    handler.sendMessage(message);
+                });
+                //进入消息循环
+                Looper.loop();
             }
-            reader.close();
-            // 关闭连接
-            connection.disconnect();
-            // 解析 JSON 数据
-            JSONObject jsonResponse = new JSONObject(response.toString());
-            JSONObject jsonData = jsonResponse.getJSONObject("data");
-            String teaBreak = jsonData.getString("tea_break");
-            JSONObject teaBreakJson = new JSONObject(teaBreak);
-            return teaBreakJson;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        }).start();
     }
 }
