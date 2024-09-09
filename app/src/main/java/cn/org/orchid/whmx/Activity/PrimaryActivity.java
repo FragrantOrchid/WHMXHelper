@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import cn.org.orchid.whmx.Adapter.PrimaryMenuAdapter;
+import cn.org.orchid.whmx.Fragment.RelatedLinksFragment;
 import cn.org.orchid.whmx.Fragment.TeaBreakFragment;
 import cn.org.orchid.whmx.R;
 
@@ -42,20 +43,15 @@ public class PrimaryActivity extends AppCompatActivity {
     }
 
     private void handleItemClick(String selectedItem) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         switch (selectedItem) {
             case "茶歇":
-                //TODO
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                TeaBreakFragment fragment = new TeaBreakFragment();
-                fragmentTransaction.replace(R.id.primary_container,fragment).commit();
-                Log.v("test_skip","activity end");
+                fragmentTransaction.replace(R.id.primary_container,new TeaBreakFragment()).commit();
                 break;
             case "相关链接":
-                //TODO
-
+                fragmentTransaction.replace(R.id.primary_container,new RelatedLinksFragment()).commit();
                 break;
-
             default:
                 //TODO
                 break;

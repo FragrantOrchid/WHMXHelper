@@ -3,13 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/official_website"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="官网链接"/>
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/wiki_website"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="信息来源"/>
+        android:text="物华弥新wiki"/>
+    <Button
+        android:id="@+id/github_website"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="源代码链接"/>
+    <Button
+        android:id="@+id/api_website"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="后端api"/>
+    <Button
+        android:id="@+id/ifdian_website"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="爱发电链接"/>
+    <Button
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="错误反馈:257880872@qq.com"/>
 
 </LinearLayout>
