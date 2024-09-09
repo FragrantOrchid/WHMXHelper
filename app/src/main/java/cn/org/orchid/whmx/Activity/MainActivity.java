@@ -22,9 +22,19 @@ public class MainActivity extends AppCompatActivity {
         Log.v("test_skip","main");
         handler = new Handler(Looper.getMainLooper(), message -> {
             switch (message.what) {
-                case 1:
-                    break;
                 //获取最新版本
+                case 1:
+                    //TODO 这段逻辑梳理一下，包括PackageDao一起
+                    try {
+                        if(new PackageDao(this,handler).getLocalVersion() < Integer.parseInt(message.obj.toString())){
+                            new PackageDao(this,handler).getUpdate();
+                        }
+
+                    } catch (PackageManager.NameNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                    break;
+
                 case 2:
                     break;
             }
