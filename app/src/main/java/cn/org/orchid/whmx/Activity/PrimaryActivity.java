@@ -25,7 +25,7 @@ public class PrimaryActivity extends AppCompatActivity {
     public void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.primary_layout);
-        String[] values = new String[] {"茶歇","信息来源","相关信息"};
+        String[] values = new String[] {"茶歇","相关链接"};
 
         PrimaryMenuAdapter adapter = new PrimaryMenuAdapter(this,values);
         ListView listView = findViewById(R.id.primary_menu);
@@ -51,14 +51,11 @@ public class PrimaryActivity extends AppCompatActivity {
                 fragmentTransaction.replace(R.id.primary_container,fragment).commit();
                 Log.v("test_skip","activity end");
                 break;
-            case "信息来源":
+            case "相关链接":
                 //TODO
 
                 break;
-            case "相关信息":
-                //TODO
 
-                break;
             default:
                 //TODO
                 break;
