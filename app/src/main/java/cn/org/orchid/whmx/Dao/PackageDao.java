@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 
 import org.json.JSONObject;
 
@@ -26,6 +27,7 @@ public class PackageDao {
         return context.getPackageName();
     }
     public void getLastedVersion() {
+        Log.v("checkversion","begin lastversion");
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -71,6 +73,45 @@ public class PackageDao {
         return packageInfo.versionCode;
     }
     public void getUpdate() {
-        //TODO
+        Log.v("checkversion","begin uodate");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String API_URL = "http://whmx.orchid.org.cn/?s=App.Package.GetLastedUrl";
+                Message message = Message.obtain();
+                try {
+                    // 创建 URL 对象
+                    URL url = new URL(API_URL);
+                    // 打开连接
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    connection.setRequestMethod("GET");
+                    // 读取响应
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    StringBuilder response = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+                    reader.close();
+                    // 关闭连接
+                    connection.disconnect();
+                    // 解析 JSON 数据
+                    JSONObject jsonResponse = new JSONObject(response.toString());
+                    message.what = 3;
+                    message.obj = jsonResponse.getString("data");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    message.what = 4;
+                }
+                //准备Looper
+                Looper.prepare();
+                //传入消息
+                new Handler().post(() -> {
+                    handler.sendMessage(message);
+                });
+                //进入消息循环
+                Looper.loop();
+            }
+        }).start();
     }
 }
