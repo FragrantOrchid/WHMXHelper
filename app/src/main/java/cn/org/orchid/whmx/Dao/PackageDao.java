@@ -31,7 +31,7 @@ public class PackageDao {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String API_URL = "http://whmx.orchid.org.cn/?s=App.Package.GetLastedVersion";
+                String API_URL = "https://whmx.orchid.org.cn/?s=App.Package.GetLastedVersion";
                 Message message = Message.obtain();
                 try {
                     // 创建 URL 对象
@@ -77,7 +77,7 @@ public class PackageDao {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String API_URL = "http://whmx.orchid.org.cn/?s=App.Package.GetLastedUrl";
+                String API_URL = "https://whmx.orchid.org.cn/?s=App.Package.GetLastedUrl";
                 Message message = Message.obtain();
                 try {
                     // 创建 URL 对象

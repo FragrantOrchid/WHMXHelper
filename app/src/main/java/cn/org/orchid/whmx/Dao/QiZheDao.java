@@ -25,7 +25,7 @@ public class QiZheDao {
             @Override
             public void run() {
                 Log.v("test_skip","run dao");
-                String API_URL = "http://whmx.orchid.org.cn/?s=App.Qizhe.Getall";
+                String API_URL = "https://whmx.orchid.org.cn/?s=App.Qizhe.Getall";
                 JSONArray jsonArray = null;
                 Message message = Message.obtain();
                 try {
@@ -73,7 +73,7 @@ public class QiZheDao {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String API_URL = "http://whmx.orchid.org.cn/?s=App.Qizhe.GetTeaBreak&code="+code;
+                String API_URL = "https://whmx.orchid.org.cn/?s=App.Qizhe.GetTeaBreak&code="+code;
                 Message message = Message.obtain();
                 try {
                     // 创建 URL 对象
